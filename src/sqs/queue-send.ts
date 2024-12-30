@@ -5,7 +5,9 @@ type QueueSendType = {
   payload: unknown;
 };
 
-const client = new SQSClient();
+const client = new SQSClient({
+  region: process.env.REGION,
+});
 
 async function sendMessage(params: QueueSendType) {
   const { payload, queueUrl } = params;

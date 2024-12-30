@@ -10,7 +10,9 @@ type QueueProcessParams<T> = {
   processFn: (messageType: T) => Promise<void>;
 };
 
-const client = new SQSClient({});
+const client = new SQSClient({
+  region: process.env.REGION
+});
 
 async function readAndProcessMessage<T>(params: QueueProcessParams<T>) {
   const { processFn, queueUrl } = params;
