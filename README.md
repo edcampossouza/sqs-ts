@@ -2,6 +2,7 @@
 
 ## Author
 edcampossouza@gmail.com
+
 https://github.com/edcampossouza
 
 ## Description
@@ -22,5 +23,7 @@ run ```npm start``` to compile the typescript source and execute the program
 Alternatively, run ```npm run exec``` to run the compiled javascript source, bypassing the compilation step. You should have run ``` npm run build``` beforehand.
 
 
+## Processing messages
+The sample request json contains a ```number``` parameter. It calculates its number of divisors, and puts the result in the response queue.
 
-
+Change the ```processRequest``` function in ```./src/app.ts``` and the types defined in ```./types/types.ts``` to process any type of messages. 
