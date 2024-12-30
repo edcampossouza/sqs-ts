@@ -64,7 +64,7 @@ async function deleteMessage(params: DeleteMessageParams) {
 
 async function pollForMessages<T>(params: QueueProcessParams<T>) {
   while (true) {
-    console.log(`process ${process.pid} is polling for messages:...`);
+    //console.log(`process ${process.pid} is polling for messages:...`);
     await readAndProcessMessage(params);
   }
 }

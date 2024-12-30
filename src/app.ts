@@ -24,6 +24,7 @@ async function processRequest(param: RequestPayloadType) {
     divisors,
     time: t2 - t1,
   };
+  console.log(`posting response (pid: [${process.pid}])`, payload);
   sendMessage({ payload, queueUrl: responseQueueUrl });
 }
 
@@ -43,9 +44,9 @@ function getParallelism(): number {
 if (cluster.isPrimary) {
   console.log(`spawning ${processes} processes`);
   for (let i = 0; i < processes; i++) {
-    cluster.fork()
+    cluster.fork();
   }
 } else {
-  console.log(`process $${process.pid} starting`)
+  console.log(`process $${process.pid} starting`);
   pollForMessages({ processFn: processRequest, queueUrl: requestQueueUrl });
 }
