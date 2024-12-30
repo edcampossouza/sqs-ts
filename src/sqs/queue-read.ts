@@ -24,8 +24,8 @@ async function readAndProcessMessage<T>(params: QueueProcessParams<T>) {
   if (response.Messages) {
     {
       for (const message of response.Messages) {
-        const obj: T = JSON.parse(message.Body!);
         try {
+          const obj: T = JSON.parse(message.Body!);
           await processFn(obj);
           await deleteMessage({
             messageReceipt: message.ReceiptHandle!,
