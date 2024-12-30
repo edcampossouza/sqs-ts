@@ -12,6 +12,8 @@ This is a node.js program that continually reads messages from an AWS SQS queue 
 ### 1- Configuring environment variables
 Create a the file .env in the root of the project, and set the REQUEST_QUEUE_URL and RESPONSE_QUEUE_URL variables. 
 
+The MAXIMUM_PARALLELISM can be used to control the number of processes. Set it to 0, 1 or leave it undefined to allow only one process. Set it to ```"max"``` to use the full os parellelism
+
 You can use the .env.example file as an example
 
 ### 2- run ```npm install ```
